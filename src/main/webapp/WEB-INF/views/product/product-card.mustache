@@ -1,0 +1,32 @@
+<script id="product-card-template" type="text/x-mustache-template">
+    {{#products}}
+    <li>
+        <article class="product-card border text-center">
+            <div class="product-image-box">
+               <a href="/products/{{id}}"> <img src="{{thumbnail}}" alt="Product Thumbnail"> </a>
+            </div>
+
+            <div class="product-title">
+                <a class="text-decoration-none text-dark" href="/products/{{id}}">
+                    <div class="span fw-bold">{{title}}</div>
+                </a>
+            </div>
+
+            <div class="product-price text-primary fs-5">{{price}} RON</div>
+
+            <div class="product-stock {{stockBootstrapClass}}"> <strong>{{stockStatus}}</strong></div>
+
+            <div class="product-actions">
+                <a type="button" class="btn btn-primary w-100 {{disabledAddToCartButton}}" onclick="addToCart({{id}})">
+                    <i class="fa-solid fa-cart-arrow-down pe-2"></i>
+                    Add to cart
+                </a>
+            </div>
+        </article>
+    </li>
+    {{/products}}
+
+    {{^products}}
+        <h1>No products available :( </h1>
+    {{/products}}
+</script>

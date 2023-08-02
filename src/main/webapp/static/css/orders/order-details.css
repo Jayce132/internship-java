@@ -1,0 +1,8 @@
+.order-item-thumbnail {
+    flex-basis: 150px;
+}
+
+.badge-order-date {
+    color: black;
+    background: white;
+}

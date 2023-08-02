@@ -1,0 +1,44 @@
+<script id="orders-template" type="text/x-mustache-template">
+    {{#orders}}
+    <li>
+        <article class="container p-0 d-flex mb-4">
+            <!-- Left border -->
+            <span class=" bg-primary" style="flex-basis: 5px;"></span>
+            <!-- Order info -->
+            <div class="container">
+                <div class="row">
+                    <div class="col mb-3 mb-md-0">
+                        <div class="container pt-2">
+                            <div class="row mb-1">
+                                <h2 class="fw-normal fs-5">
+                                    <!-- The number of the order -->
+                                    Order No. {{orderNumber}} -
+                                    <span class="fw-bold">Total:</span>
+                                    <!-- The total cost of the order-->
+                                    {{totalSum}} RON
+                                </h2>
+                            </div>
+                            <div class="row">
+                                <div class="d-flex align-items-center">
+                                    <i class="fa-regular fa-calendar fs-5 pe-2"></i>
+                                    <!-- The date of the order -->
+                                    <span>{{orderDate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 col-xl-2 d-md-flex align-items-center text-end">
+                        <!-- Link to the Order Details page -->
+                        <a class="btn btn-primary" href="/order/{{id}}">See Order</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </li>
+    {{/orders}}
+    {{^orders}}
+        <div>
+            <h3>You have no orders :( </h3>
+        </div>
+    {{/orders}}
+</script>

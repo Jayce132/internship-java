@@ -1,0 +1,518 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="UNKNOWN">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM roles WHERE id=1000;
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="roles">
+            <column name="role_name" value="ROLE_USER"/>
+            <column name="id" valueNumeric="1000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="UNKNOWN" id="2">
+        <preConditions >
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM users WHERE id=1000;
+            </sqlCheck>
+        </preConditions>
+
+        <insert tableName="users">
+            <column name="first_name" value="jane"/>
+            <column name="last_name" value="doe"/>
+            <column name="email" value="janedoe@gmail.com"/>
+            <column name="password" value="$2a$10$DU04Tc.Phjk2YbAY4esoTeRn1ixWBechJ0Umo0xTcvnb86Vx35Lfq"/>
+            <column name="is_active" valueBoolean="true"/>
+            <column name="id" valueNumeric="1000"/>
+
+        </insert>
+
+        <insert tableName="user_roles">
+            <column name="user_id" valueNumeric="1000"/>
+            <column name="role_id" valueNumeric="1000"/>
+        </insert>
+
+
+    </changeSet>
+
+
+    <changeSet id="6" author="UNKNOWN">
+        <insert tableName="products">
+            <column name="id" valueNumeric="10000"/>
+            <column name="title" value="adidas"/>
+            <column name="stock" value="6"/>
+            <column name="description" value="De alergat"/>
+            <column name="price" value="230"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000207773042_01_pa.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10001"/>
+            <column name="title" value="reebok"/>
+            <column name="stock" value="12"/>
+            <column name="description" value="Comozi"/>
+            <column name="price" value="280"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000200438870_01_ts.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10002"/>
+            <column name="title" value="sandale"/>
+            <column name="stock" value="20"/>
+            <column name="description" value="Trekking"/>
+            <column name="price" value="130"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/1/01_0000300149515_rz.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10003"/>
+            <column name="title" value="bocanci"/>
+            <column name="stock" value="2"/>
+            <column name="description" value="Hiking"/>
+            <column name="price" value="450"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000200477718_01_ai.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10004"/>
+            <column name="title" value="jordan"/>
+            <column name="stock" value="0"/>
+            <column name="description" value="basketball"/>
+            <column name="price" value="350"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/800x800/0/0/0000208613972_01_plj.jpg"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" valueNumeric="10005"/>
+            <column name="title" value="NEW BALANCE W411LN2 Bleumarin"/>
+            <column name="stock" value="6"/>
+            <column name="description" value="Exterior: Material - Material Drop: 8 mm Conține părți non-textile de origine animală: Nu"/>
+            <column name="price" value="220"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000208430654_01_rz_1.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10006"/>
+            <column name="title" value="Teniși CONVERSE"/>
+            <column name="stock" value="10"/>
+            <column name="description" value="One Star Ox 158369C Black/White/White"/>
+            <column name="price" value="330"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000200717425_01_yt.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10007"/>
+            <column name="title" value="Sneakers LASOCKI"/>
+            <column name="stock" value="8"/>
+            <column name="description" value="MI07-REZA-01 Navy"/>
+            <column name="price" value="190"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/5/9/5904248591724_01_rz.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10008"/>
+            <column name="title" value="Pantofi NIKE"/>
+            <column name="stock" value="2"/>
+            <column name="description" value="Air More Uptempo '96 DH8011 100 White/Midnight Navy/White"/>
+            <column name="price" value="480"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/1/01_0000301605270_mk.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10009"/>
+            <column name="title" value="Sneakers TOGOSHI"/>
+            <column name="stock" value="0"/>
+            <column name="description" value="MP-YSS22M-T0005 Beige"/>
+            <column name="price" value="330"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/5/9/5904248261788_01_rz_1.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10010"/>
+            <column name="title" value="Sneakers VANS"/>
+            <column name="stock" value="2"/>
+            <column name="description" value="Sk8-Hi VN000D5IB8C Black/White"/>
+            <column name="price" value="130"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000197850167_1__1.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10011"/>
+            <column name="title" value="Sneakers HUGO"/>
+            <column name="stock" value="4"/>
+            <column name="description" value="Cyden 50471324 10216494 01 Open White 120"/>
+            <column name="price" value="220"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/1/01_0000209643190_is.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10012"/>
+            <column name="title" value="Pantofi închiși BUGATTI"/>
+            <column name="stock" value="20"/>
+            <column name="description" value="313-A8Z01-4000-6300 Cognac"/>
+            <column name="price" value="150"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/1/01_0000300695623_rz.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10013"/>
+            <column name="title" value="Sneakers CHAMPION"/>
+            <column name="stock" value="2"/>
+            <column name="description" value="Nyame Jcd S21720-CHA-KK001 Triple Nbk"/>
+            <column name="price" value="450"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/1/01_0000209802054_rz.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10014"/>
+            <column name="title" value="Trekkings COLUMBIA"/>
+            <column name="stock" value="0"/>
+            <column name="description" value="Remond III BM0167 Graphite/Black 053"/>
+            <column name="price" value="350"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000208107433_01_nc.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10015"/>
+            <column name="title" value="Sneakers SOFIX"/>
+            <column name="stock" value="6"/>
+            <column name="description" value="02RZ02 Negru"/>
+            <column name="price" value="330"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000207785120_01_rz.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10016"/>
+            <column name="title" value="Bascheți CROSS JEANS"/>
+            <column name="stock" value="12"/>
+            <column name="description" value="JJ1R4032C Black"/>
+            <column name="price" value="280"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000300116371_01_rz.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10017"/>
+            <column name="title" value="Sneakers TOMMY HILFIGER"/>
+            <column name="stock" value="20"/>
+            <column name="description" value="Essential Leather Cupsole Evo FM0FM03904 White YBR"/>
+            <column name="price" value="530"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000209104592_01_fp.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10018"/>
+            <column name="title" value="Sneakers BADURA"/>
+            <column name="stock" value="2"/>
+            <column name="description" value="MI07-B189-B16-01 Beige"/>
+            <column name="price" value="450"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/5/9/5904248591120_01_rz.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10019"/>
+            <column name="title" value="Sneakers ASICS"/>
+            <column name="stock" value="0"/>
+            <column name="description" value="Gel-Bnd 1021A145 Black/Blue Expanse 004"/>
+            <column name="price" value="350"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000209259254_01_rz_1.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10020"/>
+            <column name="title" value="Sneakers ETNIES"/>
+            <column name="stock" value="20"/>
+            <column name="description" value="Josl1n 4102000144 Black/Gum 964"/>
+            <column name="price" value="230"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/1/01_0000300506066_is.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10021"/>
+            <column name="title" value="Flip flop QUIKSILVER"/>
+            <column name="stock" value="12"/>
+            <column name="description" value="AQYL100601 BYJ2"/>
+            <column name="price" value="180"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/1/01_0000300298459_mk.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10022"/>
+            <column name="title" value="Bascheți CROSS JEANS"/>
+            <column name="stock" value="20"/>
+            <column name="description" value="JJ1R4031C White"/>
+            <column name="price" value="130"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000300116364_01_plj.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10023"/>
+            <column name="title" value="Pantofi închiși GINO ROSSI"/>
+            <column name="stock" value="2"/>
+            <column name="description" value="121AM0712 Black"/>
+            <column name="price" value="360"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/5/9/5904248334000_01_rz.jpg"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" valueNumeric="10024"/>
+            <column name="title" value="Sandale KEEN"/>
+            <column name="stock" value="0"/>
+            <column name="description" value="Newport Retro 1018804 Original Tie Dye"/>
+            <column name="price" value="350"/>
+            <column name="thumbnail" value="https://www.epantofi.ro/media/catalog/product/cache/image/650x650/0/0/0000300431375_01_mk.jpg"/>
+        </insert>
+
+    </changeSet>
+
+
+
+
+    <changeSet id="7" author="UNKNOWN">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM orders WHERE id=1000;
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="orders">
+            <column name="id" value="1000"/>
+            <column name="user_id" value="1000"/>
+            <column name="order_date" valueDate="2022-08-31"/>
+            <column name="order_number" value="#WEB_2022-08-311000"/>
+            <column name="billing_address" value="Cluj, Cluj-Napoca, Str. Nowhere, No. 1, Building A3, Apt. 1408"/>
+            <column name="shipping_address" value="Gorj, Tg.Jiu, Str. Nowhere, No. 1, Building B2, Apt. 1407"/>
+            <column name="total" value="910"/>
+            <column name="status" value="PLACED"/>
+        </insert>
+
+        <insert tableName="order_item_details">
+            <column name="id" value="10000"/>
+            <column name="order_id" value="1000"/>
+            <column name="product_id" value="10000"/>
+            <column name="price" value="230"/>
+            <column name="quantity" value="2"/>
+        </insert>
+
+        <insert tableName="order_item_details">
+            <column name="id" value="10001"/>
+            <column name="order_id" value="1000"/>
+            <column name="product_id" value="10001"/>
+            <column name="price" value="450"/>
+            <column name="quantity" value="1"/>
+        </insert>
+
+
+    </changeSet>
+
+
+
+
+    <changeSet id="8" author="UNKNOWN">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM orders WHERE id=1001;
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="orders">
+            <column name="id" value="1001"/>
+            <column name="user_id" value="1000"/>
+            <column name="order_date" valueDate="2022-08-31"/>
+            <column name="order_number" value="#WEB_2022-08-311001"/>
+            <column name="billing_address" value="Cluj, Cluj-Napoca, Str. Nowhere, No. 1, Building A3, Apt. 1408"/>
+            <column name="shipping_address" value="Gorj, Tg.Jiu, Str. Nowhere, No. 1, Building B2, Apt. 1407"/>
+            <column name="total" value="1280"/>
+            <column name="status" value="PLACED"/>
+        </insert>
+
+        <insert tableName="order_item_details">
+            <column name="id" value="10002"/>
+            <column name="order_id" value="1001"/>
+            <column name="product_id" value="10002"/>
+            <column name="price" value="340"/>
+            <column name="quantity" value="3"/>
+        </insert>
+        <insert tableName="order_item_details">
+            <column name="id" value="10003"/>
+            <column name="order_id" value="1001"/>
+            <column name="product_id" value="10003"/>
+            <column name="price" value="260"/>
+            <column name="quantity" value="1"/>
+        </insert>
+    </changeSet>
+
+
+
+    <changeSet id="9" author="UNKNOWN">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM orders WHERE id=1002;
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="orders">
+            <column name="id" value="1002"/>
+            <column name="user_id" value="1000"/>
+            <column name="order_date" valueDate="2022-08-31"/>
+            <column name="order_number" value="#WEB_2022-08-311002"/>
+            <column name="billing_address" value="Cluj, Cluj-Napoca, Str. Nowhere, No. 1, Building A3, Apt. 1408"/>
+            <column name="shipping_address" value="Gorj, Tg.Jiu, Str. Nowhere, No. 1, Building B2, Apt. 1407"/>
+            <column name="total" value="650"/>
+            <column name="status" value="PLACED"/>
+        </insert>
+
+        <insert tableName="order_item_details">
+            <column name="id" value="10004"/>
+            <column name="order_id" value="1002"/>
+            <column name="product_id" value="10004"/>
+            <column name="price" value="320"/>
+            <column name="quantity" value="1"/>
+        </insert>
+        <insert tableName="order_item_details">
+            <column name="id" value="10005"/>
+            <column name="order_id" value="1002"/>
+            <column name="product_id" value="10005"/>
+            <column name="price" value="330"/>
+            <column name="quantity" value="1"/>
+        </insert>
+    </changeSet>
+
+
+
+    <changeSet id="10" author="UNKNOWN">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM orders WHERE id=1003;
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="orders">
+            <column name="id" value="1003"/>
+            <column name="user_id" value="1000"/>
+            <column name="order_date" valueDate="2022-08-31"/>
+            <column name="order_number" value="#WEB_2022-08-311003"/>
+            <column name="billing_address" value="Cluj, Cluj-Napoca, Str. Nowhere, No. 1, Building A3, Apt. 1408"/>
+            <column name="shipping_address" value="Gorj, Tg.Jiu, Str. Nowhere, No. 1, Building B2, Apt. 1407"/>
+            <column name="total" value="710"/>
+            <column name="status" value="PLACED"/>
+        </insert>
+
+        <insert tableName="order_item_details">
+            <column name="id" value="10023"/>
+            <column name="order_id" value="1003"/>
+            <column name="product_id" value="10023"/>
+            <column name="price" value="360"/>
+            <column name="quantity" value="1"/>
+        </insert>
+        <insert tableName="order_item_details">
+            <column name="id" value="10024"/>
+            <column name="order_id" value="1003"/>
+            <column name="product_id" value="10024"/>
+            <column name="price" value="350"/>
+            <column name="quantity" value="1"/>
+        </insert>
+    </changeSet>
+
+
+
+
+    <changeSet id="11" author="UNKNOWN">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM orders WHERE id=1004;
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="orders">
+            <column name="id" value="1004"/>
+            <column name="user_id" value="1000"/>
+            <column name="order_date" valueDate="2022-09-31"/>
+            <column name="order_number" value="#WEB_2022-08-311004"/>
+            <column name="billing_address" value="Cluj, Cluj-Napoca, Str. Nowhere, No. 1, Building A3, Apt. 1408"/>
+            <column name="shipping_address" value="Gorj, Tg.Jiu, Str. Nowhere, No. 1, Building B2, Apt. 1407"/>
+            <column name="total" value="360"/>
+            <column name="status" value="PLACED"/>
+        </insert>
+
+        <insert tableName="order_item_details">
+            <column name="id" value="10021"/>
+            <column name="order_id" value="1004"/>
+            <column name="product_id" value="10021"/>
+            <column name="price" value="180"/>
+            <column name="quantity" value="2"/>
+        </insert>
+    </changeSet>
+
+
+
+    <changeSet id="12" author="UNKNOWN">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM orders WHERE id=1005;
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="orders">
+            <column name="id" value="1005"/>
+            <column name="user_id" value="1000"/>
+            <column name="order_date" valueDate="2022-10-31"/>
+            <column name="order_number" value="#WEB_2022-08-311005"/>
+            <column name="billing_address" value="Cluj, Cluj-Napoca, Str. Nowhere, No. 1, Building A3, Apt. 1408"/>
+            <column name="shipping_address" value="Gorj, Tg.Jiu, Str. Nowhere, No. 1, Building B2, Apt. 1407"/>
+            <column name="total" value="360"/>
+            <column name="status" value="PLACED"/>
+        </insert>
+
+        <insert tableName="order_item_details">
+            <column name="id" value="10020"/>
+            <column name="order_id" value="1005"/>
+            <column name="product_id" value="10020"/>
+            <column name="price" value="230"/>
+            <column name="quantity" value="1"/>
+        </insert>
+        <insert tableName="order_item_details">
+            <column name="id" value="10022"/>
+            <column name="order_id" value="1005"/>
+            <column name="product_id" value="10022"/>
+            <column name="price" value="130"/>
+            <column name="quantity" value="1"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="13" author="UNKNOWN">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM orders WHERE id=1006;
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="orders">
+            <column name="id" value="1006"/>
+            <column name="user_id" value="1000"/>
+            <column name="order_date" valueDate="2022-08-31"/>
+            <column name="order_number" value="#WEB_2022-08-311006"/>
+            <column name="billing_address" value="Cluj, Cluj-Napoca, Str. Nowhere, No. 1, Building A3, Apt. 1408"/>
+            <column name="shipping_address" value="Gorj, Tg.Jiu, Str. Nowhere, No. 1, Building B2, Apt. 1407"/>
+            <column name="total" value="810"/>
+            <column name="status" value="PLACED"/>
+        </insert>
+
+        <insert tableName="order_item_details">
+            <column name="id" value="10028"/>
+            <column name="order_id" value="1006"/>
+            <column name="product_id" value="10020"/>
+            <column name="price" value="230"/>
+            <column name="quantity" value="2"/>
+        </insert>
+        <insert tableName="order_item_details">
+            <column name="id" value="10019"/>
+            <column name="order_id" value="1006"/>
+            <column name="product_id" value="10019"/>
+            <column name="price" value="350"/>
+            <column name="quantity" value="1"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

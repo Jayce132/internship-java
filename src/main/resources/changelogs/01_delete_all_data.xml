@@ -1,0 +1,23 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+<changeSet id="" author="Modan Catalin">
+    <sql>
+        delete from order_item_details;
+        delete from products;
+        delete from orders;
+        delete from persistent_logins;
+        delete from user_token;
+        delete from user_roles;
+        delete from roles;
+        delete from users;
+    </sql>
+</changeSet>
+</databaseChangeLog>
